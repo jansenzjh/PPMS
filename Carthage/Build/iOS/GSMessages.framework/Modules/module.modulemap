@@ -1,0 +1,10 @@
+framework module GSMessages {
+  umbrella header "GSMessages.h"
+
+  export *
+  module * { export * }
+}
+
+module GSMessages.Swift {
+    header "GSMessages-Swift.h"
+}

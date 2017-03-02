@@ -7,14 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0CFD341E5816380097CC64 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CFD331E5816380097CC64 /* DashboardViewController.swift */; };
+		9A0CFD371E5A618F0097CC64 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CFD361E5A618F0097CC64 /* MenuTableViewController.swift */; };
+		9A0CFD3A1E5AA1290097CC64 /* ProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CFD391E5AA1290097CC64 /* ProjectTableViewController.swift */; };
+		9A0CFD3C1E5AA3FE0097CC64 /* ProjectEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CFD3B1E5AA3FE0097CC64 /* ProjectEditViewController.swift */; };
+		9A0CFD3E1E5AA6830097CC64 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CFD3D1E5AA6830097CC64 /* Project.swift */; };
+		9A0CFD411E5B53070097CC64 /* CustomerEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CFD401E5B53070097CC64 /* CustomerEditViewController.swift */; };
+		9A0CFD431E5B53210097CC64 /* CustomerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CFD421E5B53210097CC64 /* CustomerTableViewController.swift */; };
+		9A0CFD451E5B563D0097CC64 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CFD441E5B563D0097CC64 /* Customer.swift */; };
 		9A298FFE1E564293002C5069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A298FFD1E564293002C5069 /* AppDelegate.swift */; };
 		9A2990001E564293002C5069 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A298FFF1E564293002C5069 /* ViewController.swift */; };
 		9A2990031E564293002C5069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A2990011E564293002C5069 /* Main.storyboard */; };
 		9A2990051E564293002C5069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A2990041E564293002C5069 /* Assets.xcassets */; };
 		9A2990081E564293002C5069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A2990061E564293002C5069 /* LaunchScreen.storyboard */; };
+		9A2990171E5657F6002C5069 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2990111E5657F6002C5069 /* Eureka.framework */; };
+		9A2990181E5657F6002C5069 /* FontAwesome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2990121E5657F6002C5069 /* FontAwesome.framework */; };
+		9A2990191E5657F6002C5069 /* GSMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2990131E5657F6002C5069 /* GSMessages.framework */; };
+		9A29901A1E5657F6002C5069 /* SideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2990141E5657F6002C5069 /* SideMenu.framework */; };
+		9A29901B1E5657F6002C5069 /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2990151E5657F6002C5069 /* SwiftyUserDefaults.framework */; };
+		9A29901F1E56595C002C5069 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A29901D1E56595C002C5069 /* Realm.framework */; };
+		9A2990201E56595C002C5069 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A29901E1E56595C002C5069 /* RealmSwift.framework */; };
+		9A879B741E5E2B55006DF79E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A879B731E5E2B55006DF79E /* Task.swift */; };
+		9A879B761E5E3DD4006DF79E /* TaskProjectListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A879B751E5E3DD4006DF79E /* TaskProjectListTableViewController.swift */; };
+		9A879B7B1E5E45FA006DF79E /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A879B7A1E5E45FA006DF79E /* ToDoItem.swift */; };
+		9A879B7D1E5E466F006DF79E /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A879B7C1E5E466F006DF79E /* TaskTableViewController.swift */; };
+		9A879B7F1E5E49B1006DF79E /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A879B7E1E5E49B1006DF79E /* TaskTableViewCell.swift */; };
+		9A879B811E5E7AA4006DF79E /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A879B801E5E7AA4006DF79E /* StrikeThroughText.swift */; };
+		9AAFB3431E64998C005837CC /* TimeClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB3421E64998C005837CC /* TimeClock.swift */; };
+		9AAFB3451E649A8A005837CC /* TimeClockTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB3441E649A8A005837CC /* TimeClockTableViewController.swift */; };
+		9AAFB3471E649ABA005837CC /* TimeClockEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB3461E649ABA005837CC /* TimeClockEditViewController.swift */; };
+		9AAFB34A1E661045005837CC /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB3491E661045005837CC /* Bill.swift */; };
+		9AAFB34C1E661192005837CC /* BillTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB34B1E661192005837CC /* BillTableViewController.swift */; };
+		9AAFB34E1E6611AE005837CC /* BillEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB34D1E6611AE005837CC /* BillEditViewController.swift */; };
+		9AAFB3511E662AA6005837CC /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB3501E662AA6005837CC /* Setting.swift */; };
+		9AAFB3531E662B2B005837CC /* SettingEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB3521E662B2B005837CC /* SettingEditViewController.swift */; };
+		9AAFB3551E666E2B005837CC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAFB3541E666E2B005837CC /* SwiftDate.framework */; };
+		9AAFB3571E667D66005837CC /* SwiftyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAFB3561E667D66005837CC /* SwiftyTimer.framework */; };
+		9AAFB35A1E676025005837CC /* KRAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAFB3591E676025005837CC /* KRAlertController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A0CFD331E5816380097CC64 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = Dashboard/DashboardViewController.swift; sourceTree = "<group>"; };
+		9A0CFD361E5A618F0097CC64 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuTableViewController.swift; path = Menu/MenuTableViewController.swift; sourceTree = "<group>"; };
+		9A0CFD391E5AA1290097CC64 /* ProjectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectTableViewController.swift; path = Project/ProjectTableViewController.swift; sourceTree = "<group>"; };
+		9A0CFD3B1E5AA3FE0097CC64 /* ProjectEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectEditViewController.swift; path = Project/ProjectEditViewController.swift; sourceTree = "<group>"; };
+		9A0CFD3D1E5AA6830097CC64 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Project/Project.swift; sourceTree = "<group>"; };
+		9A0CFD401E5B53070097CC64 /* CustomerEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerEditViewController.swift; path = Customer/CustomerEditViewController.swift; sourceTree = "<group>"; };
+		9A0CFD421E5B53210097CC64 /* CustomerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerTableViewController.swift; path = Customer/CustomerTableViewController.swift; sourceTree = "<group>"; };
+		9A0CFD441E5B563D0097CC64 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Customer.swift; path = Customer/Customer.swift; sourceTree = "<group>"; };
 		9A298FFA1E564293002C5069 /* PPMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A298FFD1E564293002C5069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A298FFF1E564293002C5069 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +62,31 @@
 		9A2990041E564293002C5069 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A2990071E564293002C5069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A2990091E564293002C5069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A2990101E5657F6002C5069 /* Agrume.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Agrume.framework; path = Carthage/Build/iOS/Agrume.framework; sourceTree = "<group>"; };
+		9A2990111E5657F6002C5069 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		9A2990121E5657F6002C5069 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
+		9A2990131E5657F6002C5069 /* GSMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSMessages.framework; path = Carthage/Build/iOS/GSMessages.framework; sourceTree = "<group>"; };
+		9A2990141E5657F6002C5069 /* SideMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SideMenu.framework; path = Carthage/Build/iOS/SideMenu.framework; sourceTree = "<group>"; };
+		9A2990151E5657F6002C5069 /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/iOS/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
+		9A29901D1E56595C002C5069 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		9A29901E1E56595C002C5069 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		9A879B731E5E2B55006DF79E /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Task/Task.swift; sourceTree = "<group>"; };
+		9A879B751E5E3DD4006DF79E /* TaskProjectListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskProjectListTableViewController.swift; path = Task/TaskProjectListTableViewController.swift; sourceTree = "<group>"; };
+		9A879B7A1E5E45FA006DF79E /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoItem.swift; path = Task/ToDoItem.swift; sourceTree = "<group>"; };
+		9A879B7C1E5E466F006DF79E /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskTableViewController.swift; path = Task/TaskTableViewController.swift; sourceTree = "<group>"; };
+		9A879B7E1E5E49B1006DF79E /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskTableViewCell.swift; path = Task/TaskTableViewCell.swift; sourceTree = "<group>"; };
+		9A879B801E5E7AA4006DF79E /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StrikeThroughText.swift; path = Task/StrikeThroughText.swift; sourceTree = "<group>"; };
+		9AAFB3421E64998C005837CC /* TimeClock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeClock.swift; path = TimeClock/TimeClock.swift; sourceTree = "<group>"; };
+		9AAFB3441E649A8A005837CC /* TimeClockTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeClockTableViewController.swift; path = TimeClock/TimeClockTableViewController.swift; sourceTree = "<group>"; };
+		9AAFB3461E649ABA005837CC /* TimeClockEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeClockEditViewController.swift; path = TimeClock/TimeClockEditViewController.swift; sourceTree = "<group>"; };
+		9AAFB3491E661045005837CC /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bill.swift; path = Billing/Bill.swift; sourceTree = "<group>"; };
+		9AAFB34B1E661192005837CC /* BillTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BillTableViewController.swift; path = Billing/BillTableViewController.swift; sourceTree = "<group>"; };
+		9AAFB34D1E6611AE005837CC /* BillEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BillEditViewController.swift; path = Billing/BillEditViewController.swift; sourceTree = "<group>"; };
+		9AAFB3501E662AA6005837CC /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = Setting/Setting.swift; sourceTree = "<group>"; };
+		9AAFB3521E662B2B005837CC /* SettingEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingEditViewController.swift; path = Setting/SettingEditViewController.swift; sourceTree = "<group>"; };
+		9AAFB3541E666E2B005837CC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
+		9AAFB3561E667D66005837CC /* SwiftyTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyTimer.framework; path = Carthage/Build/iOS/SwiftyTimer.framework; sourceTree = "<group>"; };
+		9AAFB3591E676025005837CC /* KRAlertController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRAlertController.framework; path = Carthage/Build/iOS/KRAlertController.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +94,64 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2990171E5657F6002C5069 /* Eureka.framework in Frameworks */,
+				9A29901F1E56595C002C5069 /* Realm.framework in Frameworks */,
+				9AAFB3551E666E2B005837CC /* SwiftDate.framework in Frameworks */,
+				9A2990201E56595C002C5069 /* RealmSwift.framework in Frameworks */,
+				9AAFB3571E667D66005837CC /* SwiftyTimer.framework in Frameworks */,
+				9A2990181E5657F6002C5069 /* FontAwesome.framework in Frameworks */,
+				9A2990191E5657F6002C5069 /* GSMessages.framework in Frameworks */,
+				9A29901A1E5657F6002C5069 /* SideMenu.framework in Frameworks */,
+				9A29901B1E5657F6002C5069 /* SwiftyUserDefaults.framework in Frameworks */,
+				9AAFB35A1E676025005837CC /* KRAlertController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A0CFD321E5815710097CC64 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				9A0CFD331E5816380097CC64 /* DashboardViewController.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		9A0CFD351E5A61650097CC64 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9A0CFD361E5A618F0097CC64 /* MenuTableViewController.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		9A0CFD381E5AA05F0097CC64 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				9A0CFD391E5AA1290097CC64 /* ProjectTableViewController.swift */,
+				9A0CFD3B1E5AA3FE0097CC64 /* ProjectEditViewController.swift */,
+				9A0CFD3D1E5AA6830097CC64 /* Project.swift */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		9A0CFD3F1E5B52E40097CC64 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				9A0CFD421E5B53210097CC64 /* CustomerTableViewController.swift */,
+				9A0CFD401E5B53070097CC64 /* CustomerEditViewController.swift */,
+				9A0CFD441E5B563D0097CC64 /* Customer.swift */,
+			);
+			name = Customer;
+			sourceTree = "<group>";
+		};
 		9A298FF11E564293002C5069 = {
 			isa = PBXGroup;
 			children = (
 				9A298FFC1E564293002C5069 /* PPMS */,
 				9A298FFB1E564293002C5069 /* Products */,
+				9A29900F1E5657F5002C5069 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +166,14 @@
 		9A298FFC1E564293002C5069 /* PPMS */ = {
 			isa = PBXGroup;
 			children = (
+				9AAFB34F1E662A83005837CC /* Setting */,
+				9AAFB3481E66101F005837CC /* Billing */,
+				9AAFB3411E64993E005837CC /* TimeClock */,
+				9A879B711E5E1EA3006DF79E /* Task */,
+				9A0CFD3F1E5B52E40097CC64 /* Customer */,
+				9A0CFD381E5AA05F0097CC64 /* Project */,
+				9A0CFD351E5A61650097CC64 /* Menu */,
+				9A0CFD321E5815710097CC64 /* Dashboard */,
 				9A298FFD1E564293002C5069 /* AppDelegate.swift */,
 				9A298FFF1E564293002C5069 /* ViewController.swift */,
 				9A2990011E564293002C5069 /* Main.storyboard */,
@@ -62,6 +182,66 @@
 				9A2990091E564293002C5069 /* Info.plist */,
 			);
 			path = PPMS;
+			sourceTree = "<group>";
+		};
+		9A29900F1E5657F5002C5069 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AAFB3591E676025005837CC /* KRAlertController.framework */,
+				9AAFB3561E667D66005837CC /* SwiftyTimer.framework */,
+				9AAFB3541E666E2B005837CC /* SwiftDate.framework */,
+				9A29901D1E56595C002C5069 /* Realm.framework */,
+				9A29901E1E56595C002C5069 /* RealmSwift.framework */,
+				9A2990101E5657F6002C5069 /* Agrume.framework */,
+				9A2990111E5657F6002C5069 /* Eureka.framework */,
+				9A2990121E5657F6002C5069 /* FontAwesome.framework */,
+				9A2990131E5657F6002C5069 /* GSMessages.framework */,
+				9A2990141E5657F6002C5069 /* SideMenu.framework */,
+				9A2990151E5657F6002C5069 /* SwiftyUserDefaults.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A879B711E5E1EA3006DF79E /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				9A879B731E5E2B55006DF79E /* Task.swift */,
+				9A879B751E5E3DD4006DF79E /* TaskProjectListTableViewController.swift */,
+				9A879B7A1E5E45FA006DF79E /* ToDoItem.swift */,
+				9A879B7C1E5E466F006DF79E /* TaskTableViewController.swift */,
+				9A879B7E1E5E49B1006DF79E /* TaskTableViewCell.swift */,
+				9A879B801E5E7AA4006DF79E /* StrikeThroughText.swift */,
+			);
+			name = Task;
+			sourceTree = "<group>";
+		};
+		9AAFB3411E64993E005837CC /* TimeClock */ = {
+			isa = PBXGroup;
+			children = (
+				9AAFB3421E64998C005837CC /* TimeClock.swift */,
+				9AAFB3441E649A8A005837CC /* TimeClockTableViewController.swift */,
+				9AAFB3461E649ABA005837CC /* TimeClockEditViewController.swift */,
+			);
+			name = TimeClock;
+			sourceTree = "<group>";
+		};
+		9AAFB3481E66101F005837CC /* Billing */ = {
+			isa = PBXGroup;
+			children = (
+				9AAFB3491E661045005837CC /* Bill.swift */,
+				9AAFB34B1E661192005837CC /* BillTableViewController.swift */,
+				9AAFB34D1E6611AE005837CC /* BillEditViewController.swift */,
+			);
+			name = Billing;
+			sourceTree = "<group>";
+		};
+		9AAFB34F1E662A83005837CC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				9AAFB3501E662AA6005837CC /* Setting.swift */,
+				9AAFB3521E662B2B005837CC /* SettingEditViewController.swift */,
+			);
+			name = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +254,7 @@
 				9A298FF61E564293002C5069 /* Sources */,
 				9A298FF71E564293002C5069 /* Frameworks */,
 				9A298FF81E564293002C5069 /* Resources */,
+				9A29901C1E565824002C5069 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,13 +313,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9A29901C1E565824002C5069 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FontAwesome.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GSMessages.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SideMenu.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyUserDefaults.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyTimer.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KRAlertController.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9A298FF61E564293002C5069 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A879B761E5E3DD4006DF79E /* TaskProjectListTableViewController.swift in Sources */,
+				9A0CFD371E5A618F0097CC64 /* MenuTableViewController.swift in Sources */,
+				9A879B7F1E5E49B1006DF79E /* TaskTableViewCell.swift in Sources */,
+				9A0CFD451E5B563D0097CC64 /* Customer.swift in Sources */,
+				9AAFB34C1E661192005837CC /* BillTableViewController.swift in Sources */,
+				9A0CFD3A1E5AA1290097CC64 /* ProjectTableViewController.swift in Sources */,
+				9AAFB3511E662AA6005837CC /* Setting.swift in Sources */,
 				9A2990001E564293002C5069 /* ViewController.swift in Sources */,
+				9A879B741E5E2B55006DF79E /* Task.swift in Sources */,
+				9AAFB3431E64998C005837CC /* TimeClock.swift in Sources */,
+				9A0CFD341E5816380097CC64 /* DashboardViewController.swift in Sources */,
+				9A0CFD411E5B53070097CC64 /* CustomerEditViewController.swift in Sources */,
+				9A0CFD3C1E5AA3FE0097CC64 /* ProjectEditViewController.swift in Sources */,
+				9AAFB3531E662B2B005837CC /* SettingEditViewController.swift in Sources */,
+				9A879B811E5E7AA4006DF79E /* StrikeThroughText.swift in Sources */,
+				9A879B7B1E5E45FA006DF79E /* ToDoItem.swift in Sources */,
+				9A0CFD3E1E5AA6830097CC64 /* Project.swift in Sources */,
 				9A298FFE1E564293002C5069 /* AppDelegate.swift in Sources */,
+				9AAFB3451E649A8A005837CC /* TimeClockTableViewController.swift in Sources */,
+				9AAFB34A1E661045005837CC /* Bill.swift in Sources */,
+				9AAFB3471E649ABA005837CC /* TimeClockEditViewController.swift in Sources */,
+				9AAFB34E1E6611AE005837CC /* BillEditViewController.swift in Sources */,
+				9A879B7D1E5E466F006DF79E /* TaskTableViewController.swift in Sources */,
+				9A0CFD431E5B53210097CC64 /* CustomerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +489,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BY59H3843H;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PPMS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JSoft.PPMS;
@@ -273,6 +506,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BY59H3843H;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PPMS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JSoft.PPMS;
@@ -300,6 +537,7 @@
 				9A29900E1E564293002C5069 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

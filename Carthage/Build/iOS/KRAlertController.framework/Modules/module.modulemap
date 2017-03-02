@@ -1,0 +1,10 @@
+framework module KRAlertController {
+  umbrella header "KRAlertController.h"
+
+  export *
+  module * { export * }
+}
+
+module KRAlertController.Swift {
+    header "KRAlertController-Swift.h"
+}

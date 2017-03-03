@@ -66,4 +66,21 @@ class TimeClock: Object {
             }
         }
     }
+    func Delete(guid: String){
+        let realm = try! Realm()
+        let obj = realm.objects(TimeClock.self).filter("Guid = %@", guid).first
+        if (obj != nil){
+            try! realm.write{
+                realm.delete(obj!)
+            }
+        }
+    }
+    func GetAllByProjectGID(guid: String) -> [TimeClock]{
+        let obj = try! Realm().objects(TimeClock.self).filter("ProjectGID = %@", guid).sorted(byKeyPath: "EndDate", ascending: false)
+        if (obj != nil){
+            return Array(obj)
+        }else{
+            return [TimeClock()]
+        }
+    }
 }

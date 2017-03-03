@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import SwiftDate
+import FontAwesome
 
 class TimeClockTableViewController: UITableViewController {
     
@@ -56,7 +57,7 @@ class TimeClockTableViewController: UITableViewController {
     func LoadData() {
         let realm = try! Realm()
         
-        let cl = realm.objects(TimeClock.self)
+        let cl = realm.objects(TimeClock.self).sorted(byKeyPath: "EndDate", ascending: false)
         self.timeClockList = Array(cl)
     }
     
@@ -65,9 +66,12 @@ class TimeClockTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "timeclockCell", for: indexPath)
         
         // Configure the cell...
-        let ed = timeClockList[indexPath.row].EndDate
-        let sd = timeClockList[indexPath.row].StartDate
-        cell.textLabel?.text = (sd?.string(format: .custom("MM/dd hh:mm")))! + " - " + (ed?.string(format: .custom("MM/dd hh:mm")))!
+        let tc = timeClockList[indexPath.row]
+        cell.imageView?.image = UIImage.fontAwesomeIcon(name: .clockO, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
+        cell.textLabel?.text = (tc.StartDate?.string(format: .custom("MM/dd hh:mm")))!
+            + " - " + (tc.EndDate?.string(format: .custom("MM/dd hh:mm")))!
+        + " " + Project().GetProjectNameByGuid(guid: tc.ProjectGID)
+        cell.detailTextLabel?.text = tc.Description
         return cell
     }
     
@@ -80,17 +84,20 @@ class TimeClockTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let obj = self.timeClockList[indexPath.row]
+            TimeClock().Delete(guid: obj.Guid)
+            timeClockList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
     
     /*
      // Override to support rearranging the table view.

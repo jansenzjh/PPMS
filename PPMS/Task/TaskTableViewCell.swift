@@ -228,7 +228,9 @@ class TaskTableViewCell: UITableViewCell, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if toDoItem != nil {
             toDoItem!.text = textField.text!
-            Task().AddOrUpdate(toDoItem: toDoItem!)
+            if (textField.text?.characters.count)! > 0 {
+                Task().AddOrUpdate(toDoItem: toDoItem!)
+            }
         }
         if delegate != nil {
             delegate!.cellDidEndEditing(editingCell: self)

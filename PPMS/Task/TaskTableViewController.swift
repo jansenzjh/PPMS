@@ -18,21 +18,9 @@ class TaskTableViewController: UITableViewController, TaskTableViewCellDelegate{
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = 50.0
         
-        self.tableView.backgroundColor = UIColor.black
+        self.tableView.backgroundColor = UIColor.white
         self.tableView.delegate = self
         
-//        toDoItems.append(ToDoItem(text: "feed the cat"))
-//        toDoItems.append(ToDoItem(text: "buy eggs"))
-//        toDoItems.append(ToDoItem(text: "watch WWDC videos"))
-//        toDoItems.append(ToDoItem(text: "rule the Web"))
-//        toDoItems.append(ToDoItem(text: "buy a new iPhone"))
-//        toDoItems.append(ToDoItem(text: "darn holes in socks"))
-//        toDoItems.append(ToDoItem(text: "write this tutorial"))
-//        toDoItems.append(ToDoItem(text: "master Swift"))
-//        toDoItems.append(ToDoItem(text: "learn to draw"))
-//        toDoItems.append(ToDoItem(text: "get more exercise"))
-//        toDoItems.append(ToDoItem(text: "catch up with Mom"))
-//        toDoItems.append(ToDoItem(text: "get a hair cut"))
         
         if self.projectGID.characters.count > 0{
             let tasks = Task().GetAllByProjectGID(guid: projectGID)
@@ -42,7 +30,11 @@ class TaskTableViewController: UITableViewController, TaskTableViewCellDelegate{
             }
         }
         
-        
+        if toDoItems.count == 0{
+            self.navigationItem.title = "Pull down to add"
+        }else{
+            self.navigationItem.title = "Tasks"
+        }
         
     }
     

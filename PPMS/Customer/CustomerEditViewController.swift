@@ -28,6 +28,7 @@ class CustomerEditViewController: FormViewController {
                 if (customerObj?.Company.characters.count)! > 0 {
                     row.value = customerObj?.Company
                 }
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .idCard, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< NameRow("ContactName"){ row in
                 row.title = "Contact Name"
@@ -35,12 +36,14 @@ class CustomerEditViewController: FormViewController {
                 if((customerObj?.ContactName.characters.count)! > 0){
                     row.value = customerObj?.ContactName
                 }
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .userCircle, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< TextRow("Email"){ row in
                 row.title = "Email"
                 row.placeholder = "Email"
                 row.add(rule: RuleEmail())
                 row.validationOptions = .validatesOnChange
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .envelope, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 if (customerObj?.Email.characters.count)! > 0{
                     row.value = customerObj?.Email
                 }
@@ -55,6 +58,7 @@ class CustomerEditViewController: FormViewController {
                 if (customerObj?.Phone.characters.count)! > 0{
                     $0.value = customerObj?.Phone
                 }
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .phone, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< PhoneRow("Fax"){
                 $0.title = "Fax"
@@ -62,6 +66,7 @@ class CustomerEditViewController: FormViewController {
                 if (customerObj?.Fax.characters.count)! > 0{
                     $0.value = customerObj?.Fax
                 }
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .fax, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             +++ Section("Address")
             <<< TextRow("Address1"){ row in
@@ -70,6 +75,7 @@ class CustomerEditViewController: FormViewController {
                 if (customerObj?.Address1.characters.count)! > 0{
                     row.value = customerObj?.Address1
                 }
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .addressBook, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< TextRow("Address2"){ row in
                 row.title = "Address 2"
@@ -77,6 +83,7 @@ class CustomerEditViewController: FormViewController {
                 if (customerObj?.Address2.characters.count)! > 0{
                     row.value = customerObj?.Address2
                 }
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .addressBook, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< TextRow("City"){ row in
                 row.title = "City"
@@ -84,6 +91,7 @@ class CustomerEditViewController: FormViewController {
                 if (customerObj?.City.characters.count)! > 0{
                     row.value = customerObj?.City
                 }
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .locationArrow, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< TextRow("State"){ row in
                 row.title = "State"
@@ -91,6 +99,7 @@ class CustomerEditViewController: FormViewController {
                 if (customerObj?.State.characters.count)! > 0{
                     row.value = customerObj?.State
                 }
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .mapMarker, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< ZipCodeRow("Zip"){ row in
                 row.title = "Zip"
@@ -98,6 +107,7 @@ class CustomerEditViewController: FormViewController {
                 if (customerObj?.Zip.characters.count)! > 0{
                     row.value = customerObj?.Zip
                 }
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .globe, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             +++ Section("Others")
             <<< TextAreaRow("Memo"){ row in
@@ -110,6 +120,7 @@ class CustomerEditViewController: FormViewController {
             +++ Section("Actions")
             <<< ButtonRow("Save"){
                 $0.title = "Save"
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .save, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 }.onCellSelection { [weak self] (cell, row) in
                     self?.Save()
                     _ = self?.navigationController?.popViewController(animated: true)

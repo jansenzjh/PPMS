@@ -25,10 +25,12 @@ class TimeClockEditViewController: FormViewController {
             <<< DateTimeInlineRow("StartDate"){ row in
                 row.title = "Start"
                 row.value = timeClockObj?.StartDate as Date?
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .clockO, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< DateTimeInlineRow("EndDate"){ row in
                 row.title = "End"
                 row.value = timeClockObj?.EndDate as Date?
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .clockO, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< PushRow<String>("ProjectGID") {
                 let projs = Project().GetAllProjectName()
@@ -40,11 +42,13 @@ class TimeClockEditViewController: FormViewController {
                 }else{
                     $0.selectorTitle = "Choose a Project"
                 }
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .folderOpen, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 
             }
             <<< SwitchRow("IsClockIn"){
                 $0.title = "Is Clock In?"
                 $0.value = timeClockObj?.IsClockIn
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .checkSquareO, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< TextAreaRow("Description"){ row in
                 row.title = "Description"
@@ -58,6 +62,7 @@ class TimeClockEditViewController: FormViewController {
             +++ Section("Actions")
             <<< ButtonRow("Save"){
                 $0.title = "Save"
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .save, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 }.onCellSelection { [weak self] (cell, row) in
                     self?.Save()
                     _ = self?.navigationController?.popViewController(animated: true)

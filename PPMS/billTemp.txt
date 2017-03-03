@@ -1,0 +1,75 @@
+<div>
+<table>
+<tbody>
+<tr>
+<td>emailDate</td>
+</tr>
+</tbody>
+</table>
+<br />
+<table style="height: 155px;" width="695">
+<tbody>
+<tr>
+<td style="width: 302px;">From</td>
+<td style="width: 50px;">&nbsp;</td>
+<td style="width: 342px;">Bill To</td>
+</tr>
+<tr>
+<td style="width: 302px;">company1</td>
+<td style="width: 50px;">&nbsp;</td>
+<td style="width: 342px;">company2</td>
+</tr>
+<tr>
+<td style="width: 302px;">name1</td>
+<td style="width: 50px;">&nbsp;</td>
+<td style="width: 342px;">name2</td>
+</tr>
+<tr>
+<td style="width: 302px;">addr11</td>
+<td style="width: 50px;">&nbsp;</td>
+<td style="width: 342px;">addr12</td>
+</tr>
+<tr>
+<td style="width: 302px;">addr21</td>
+<td style="width: 50px;">&nbsp;</td>
+<td style="width: 342px;">addr22</td>
+</tr>
+<tr>
+<td style="width: 302px;">email1</td>
+<td style="width: 50px;">&nbsp;</td>
+<td style="width: 342px;">email2</td>
+</tr>
+<tr>
+<td style="width: 302px;">phone1</td>
+<td style="width: 50px;">&nbsp;</td>
+<td style="width: 342px;">phone2</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table style="height: 56px;" width="695">
+<tbody>
+<tr>
+<td style="width: 215px;">Project Name</td>
+<td style="width: 133px;">Bill Type</td>
+<td style="width: 135px;">Quantity</td>
+<td style="width: 82px;">Price</td>
+<td style="width: 129px;">Amount</td>
+</tr>
+<tr>
+<td style="width: 215px;">prj</td>
+<td style="width: 133px;">blltype</td>
+<td style="width: 135px;">qty</td>
+<td style="width: 82px;">prz</td>
+<td style="width: 129px;">amt</td>
+</tr>
+<tr>
+<td style="width: 215px;">&nbsp;</td>
+<td style="width: 133px;">&nbsp;</td>
+<td style="width: 135px;">&nbsp;</td>
+<td style="width: 82px;">Total</td>
+<td style="width: 129px;">tot</td>
+</tr>
+</tbody>
+</table>
+</div>

@@ -18,6 +18,20 @@ class Task: Object {
     dynamic var Priority = "Low"
     dynamic var ProjectGID = ""
     
+    func GetAllProjects(isActiveOnly: Bool) -> [Task]{
+        
+        let realm = try! Realm()
+        if !isActiveOnly{
+            let list = realm.objects(Task.self).sorted(byKeyPath: "EndDate", ascending: true)
+            let arr = Array(list)
+            return arr
+        }else{
+            let list = realm.objects(Task.self).filter("Completed = %@", false).sorted(byKeyPath: "EndDate", ascending: true)
+            let arr = Array(list)
+            return arr
+        }
+    }
+    
     func GetAllByProjectGID(guid: String) -> [Task]{
         let obj = try! Realm().objects(Task.self).filter("ProjectGID = %@", guid).sorted(byKeyPath: "EndDate", ascending: false)
         if (obj != nil){
@@ -58,4 +72,5 @@ class Task: Object {
         }
         
     }
+    
 }

@@ -32,17 +32,19 @@ class ProjectEditViewController: FormViewController {
                 if (projectObj?.Name.characters.count)! > 0 {
                     row.value = projectObj?.Name
                 }
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .user, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             
             <<< DateRow("StartDate"){ row in
                 row.title = "Start Date"
                 row.value = projectObj?.StartDate as Date?
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .calendar, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 
             }
             <<< DateRow("EndDate"){ row in
                 row.title = "End Date"
                 row.value = projectObj?.EndDate as Date?
-                
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .calendar, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             
             <<< PushRow<String>("CustomerGID") {
@@ -55,7 +57,7 @@ class ProjectEditViewController: FormViewController {
                 }else{
                     $0.selectorTitle = "Choose a Customer"
                 }
-                
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .userCircle, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
         
             <<< TextAreaRow("Description"){ row in
@@ -73,6 +75,7 @@ class ProjectEditViewController: FormViewController {
                 $0.title = "Status"
                 $0.options = ["Open", "Close"]
                 $0.value = projectObj?.Status
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .thermometerHalf, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 
             }
             
@@ -80,7 +83,7 @@ class ProjectEditViewController: FormViewController {
                 $0.title = "Priority"
                 $0.options = ["Critical", "High", "Medium", "Low"]
                 $0.value = projectObj?.Priority
-                
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .arrowUp, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< TextRow("Category"){ row in
                 row.title = "Category"
@@ -88,6 +91,7 @@ class ProjectEditViewController: FormViewController {
                 if (projectObj?.Category.characters.count)! > 0{
                     row.value = projectObj?.Category
                 }
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .filesO, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             
             <<< TextAreaRow("Notes"){ row in
@@ -103,7 +107,7 @@ class ProjectEditViewController: FormViewController {
                 $0.title = "Bill Types"
                 $0.options = ["Fixed Cost", "Hour Rate"]
                 $0.value = projectObj?.BillTypes
-                
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .money, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 }
 
             <<< DecimalRow("BillRate"){ row in
@@ -115,6 +119,7 @@ class ProjectEditViewController: FormViewController {
                     let rowVal = (form.rowBy(tag: "BillTypes") as? SegmentedRow<String>)?.value
                     return !(rowVal == "Hour Rate")
                 })
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .creditCard, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 
             }
             <<< DecimalRow("FixedPrice"){ row in
@@ -124,6 +129,7 @@ class ProjectEditViewController: FormViewController {
                 row.hidden = Condition.function(["BillTypes"], { form in
                     return !((form.rowBy(tag: "BillTypes") as? SegmentedRow<String>)?.value != "Hour Rate")
                 })
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .creditCard, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 
             }
 
@@ -154,10 +160,10 @@ class ProjectEditViewController: FormViewController {
         }
         
         var dateVal = valuesDictionary["StartDate"]
-        projectObj?.StartDate = dateVal as! NSDate
+        projectObj?.StartDate = (dateVal as! Date)
         
         dateVal = valuesDictionary["EndDate"]
-        projectObj?.EndDate = dateVal as! NSDate
+        projectObj?.EndDate = dateVal as! Date
         
         strVal = valuesDictionary["Description"]
         if (strVal as? String != nil) {
@@ -196,7 +202,7 @@ class ProjectEditViewController: FormViewController {
         }
         
         var doubleVal = valuesDictionary["BillRate"]
-        if (strVal as? Double != nil) {
+        if (doubleVal as? Double != nil) {
             projectObj?.BillRatePerHour = doubleVal as! Double
         }
     
@@ -277,5 +283,9 @@ class ProjectEditViewController: FormViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    
+    
+    
 
 }

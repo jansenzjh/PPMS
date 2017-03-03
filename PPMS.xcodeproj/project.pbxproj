@@ -44,6 +44,10 @@
 		9AAFB3551E666E2B005837CC /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAFB3541E666E2B005837CC /* SwiftDate.framework */; };
 		9AAFB3571E667D66005837CC /* SwiftyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAFB3561E667D66005837CC /* SwiftyTimer.framework */; };
 		9AAFB35A1E676025005837CC /* KRAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAFB3591E676025005837CC /* KRAlertController.framework */; };
+		9AAFB35C1E687A04005837CC /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAFB35B1E687A04005837CC /* SwipeCellKit.framework */; };
+		9AAFB35F1E68820E005837CC /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB35E1E68820E005837CC /* ProjectTableViewCell.swift */; };
+		9AAFB3611E68DE2D005837CC /* billTemp.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9AAFB3601E68DE2D005837CC /* billTemp.txt */; };
+		9AAFB3631E692010005837CC /* Format.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAFB3621E692010005837CC /* Format.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +91,10 @@
 		9AAFB3541E666E2B005837CC /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		9AAFB3561E667D66005837CC /* SwiftyTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyTimer.framework; path = Carthage/Build/iOS/SwiftyTimer.framework; sourceTree = "<group>"; };
 		9AAFB3591E676025005837CC /* KRAlertController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KRAlertController.framework; path = Carthage/Build/iOS/KRAlertController.framework; sourceTree = "<group>"; };
+		9AAFB35B1E687A04005837CC /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
+		9AAFB35E1E68820E005837CC /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectTableViewCell.swift; path = Project/ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		9AAFB3601E68DE2D005837CC /* billTemp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = billTemp.txt; sourceTree = "<group>"; };
+		9AAFB3621E692010005837CC /* Format.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Format.framework; path = Carthage/Build/iOS/Format.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +103,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A2990171E5657F6002C5069 /* Eureka.framework in Frameworks */,
+				9AAFB3631E692010005837CC /* Format.framework in Frameworks */,
 				9A29901F1E56595C002C5069 /* Realm.framework in Frameworks */,
 				9AAFB3551E666E2B005837CC /* SwiftDate.framework in Frameworks */,
 				9A2990201E56595C002C5069 /* RealmSwift.framework in Frameworks */,
+				9AAFB35C1E687A04005837CC /* SwipeCellKit.framework in Frameworks */,
 				9AAFB3571E667D66005837CC /* SwiftyTimer.framework in Frameworks */,
 				9A2990181E5657F6002C5069 /* FontAwesome.framework in Frameworks */,
 				9A2990191E5657F6002C5069 /* GSMessages.framework in Frameworks */,
@@ -132,6 +142,7 @@
 				9A0CFD391E5AA1290097CC64 /* ProjectTableViewController.swift */,
 				9A0CFD3B1E5AA3FE0097CC64 /* ProjectEditViewController.swift */,
 				9A0CFD3D1E5AA6830097CC64 /* Project.swift */,
+				9AAFB35E1E68820E005837CC /* ProjectTableViewCell.swift */,
 			);
 			name = Project;
 			sourceTree = "<group>";
@@ -179,6 +190,7 @@
 				9A2990011E564293002C5069 /* Main.storyboard */,
 				9A2990041E564293002C5069 /* Assets.xcassets */,
 				9A2990061E564293002C5069 /* LaunchScreen.storyboard */,
+				9AAFB3601E68DE2D005837CC /* billTemp.txt */,
 				9A2990091E564293002C5069 /* Info.plist */,
 			);
 			path = PPMS;
@@ -187,6 +199,8 @@
 		9A29900F1E5657F5002C5069 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9AAFB3621E692010005837CC /* Format.framework */,
+				9AAFB35B1E687A04005837CC /* SwipeCellKit.framework */,
 				9AAFB3591E676025005837CC /* KRAlertController.framework */,
 				9AAFB3561E667D66005837CC /* SwiftyTimer.framework */,
 				9AAFB3541E666E2B005837CC /* SwiftDate.framework */,
@@ -308,6 +322,7 @@
 				9A2990081E564293002C5069 /* LaunchScreen.storyboard in Resources */,
 				9A2990051E564293002C5069 /* Assets.xcassets in Resources */,
 				9A2990031E564293002C5069 /* Main.storyboard in Resources */,
+				9AAFB3611E68DE2D005837CC /* billTemp.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +345,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyTimer.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KRAlertController.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwipeCellKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Format.framework",
 			);
 			outputPaths = (
 			);
@@ -344,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AAFB35F1E68820E005837CC /* ProjectTableViewCell.swift in Sources */,
 				9A879B761E5E3DD4006DF79E /* TaskProjectListTableViewController.swift in Sources */,
 				9A0CFD371E5A618F0097CC64 /* MenuTableViewController.swift in Sources */,
 				9A879B7F1E5E49B1006DF79E /* TaskTableViewCell.swift in Sources */,

@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import SwiftDate
+import Format
 
 class BillTableViewController: UITableViewController {
     
@@ -52,10 +54,28 @@ class BillTableViewController: UITableViewController {
         return self.billList.count
     }
     
+    
+    
+     // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let obj = self.billList[indexPath.row]
+            Bill().Delete(guid: obj.Guid)
+            billList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+ 
+    
     func LoadData() {
         let realm = try! Realm()
         
-        let cl = realm.objects(Bill.self)
+        let cl = realm.objects(Bill.self).sorted(byKeyPath: "TransactionDate")
         self.billList = Array(cl)
     }
     
@@ -64,45 +84,12 @@ class BillTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "billcell", for: indexPath)
         
         // Configure the cell...
-        cell.textLabel?.text = billList[indexPath.row].Guid
+        let bl = billList[indexPath.row]
+        cell.textLabel?.text = bl.TransactionDate.string(format: .custom("MM/dd")) + " " + bl.Amount.format(Currency.USD)
+        cell.detailTextLabel?.text = Project().GetProjectNameByGuid(guid: bl.ProjectGID)
         return cell
     }
     
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
     
     
     // MARK: - Navigation
@@ -126,6 +113,7 @@ class BillTableViewController: UITableViewController {
             theDtl.IsCompleted = (c.IsCompleted)
             theDtl.ProjectGID = (c.ProjectGID)
             theDtl.CustomerGID = c.CustomerGID
+            theDtl.TransactionType = c.TransactionType
             destView.billObj = theDtl
             
             

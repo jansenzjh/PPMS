@@ -66,4 +66,14 @@ class Customer: Object {
         }
     }
 
+    func Delete(guid: String){
+        let realm = try! Realm()
+        let obj = realm.objects(Customer.self).filter("Guid = %@", guid).first
+        if (obj != nil){
+            try! realm.write{
+                realm.delete(obj!)
+            }
+        }
+    }
+    
 }

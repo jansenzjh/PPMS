@@ -9,8 +9,9 @@
 import UIKit
 import Eureka
 import RealmSwift
+import MessageUI
 
-class BillEditViewController: FormViewController {
+class BillEditViewController: FormViewController, MFMailComposeViewControllerDelegate {
     
     var billObj: Bill? = nil
     
@@ -25,6 +26,7 @@ class BillEditViewController: FormViewController {
             <<< DateTimeInlineRow("CreateDate"){ row in
                 row.title = "Create Date"
                 row.value = billObj?.CreateDate as Date?
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .calendar, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< DateTimeInlineRow("TransactionDate"){ row in
                 row.title = "Transaction Date"
@@ -34,6 +36,7 @@ class BillEditViewController: FormViewController {
                 let projs = Project().GetAllProjectName()
                 $0.title = "Project"
                 $0.options = projs
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .calendar, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 $0.value = Project().GetProjectNameByGuid(guid: (billObj?.ProjectGID)!)
                 if projs.count == 0 {
                     $0.selectorTitle = "Please create Project first!"
@@ -52,18 +55,27 @@ class BillEditViewController: FormViewController {
                 }else{
                     $0.selectorTitle = "Choose a Customer"
                 }
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .users, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 
             }
             <<< DecimalRow("Amount"){ row in
                 row.title = "Amount"
                 row.placeholder = "What's your Amount?"
                 row.value = billObj?.Amount
+                row.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .money, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 
             }
             
+            <<< SegmentedRow<String>("TransactionType"){
+                $0.title = "Transaction Type"
+                $0.value = billObj?.TransactionType
+                $0.options = ["Order", "Invoice"]
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .sitemap, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
+            }
             <<< SwitchRow("IsCompleted"){
                 $0.title = "Is Completed?"
                 $0.value = billObj?.IsCompleted
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .checkCircle, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
             }
             <<< TextAreaRow("Notes"){ row in
                 row.title = "Notes"
@@ -77,9 +89,16 @@ class BillEditViewController: FormViewController {
             +++ Section("Actions")
             <<< ButtonRow("Save"){
                 $0.title = "Save"
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .save, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
                 }.onCellSelection { [weak self] (cell, row) in
                     self?.Save()
                     _ = self?.navigationController?.popViewController(animated: true)
+        }
+            <<< ButtonRow("Email"){
+                $0.title = "Email"
+                $0.baseCell.imageView?.image = UIImage.fontAwesomeIcon(name: .envelope, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
+                }.onCellSelection { [weak self] (cell, row) in
+                    self?.sendEmail()
         }
     }
     
@@ -106,6 +125,10 @@ class BillEditViewController: FormViewController {
         if (strVal as? String != nil) {
             strVal = Customer().GetByName(name: strVal as! String).Guid
             billObj?.CustomerGID = strVal as! String
+        }
+        strVal = valuesDictionary["TransactionType"]
+        if (strVal as? String != nil) {
+            billObj?.TransactionType = strVal as! String
         }
         
         var dateVal = valuesDictionary["CreateDate"]
@@ -149,6 +172,8 @@ class BillEditViewController: FormViewController {
                 theDtl!.IsCompleted = (billObj?.IsCompleted)!
                 theDtl!.ProjectGID = (billObj?.ProjectGID)!
                 theDtl!.CustomerGID = (billObj?.CustomerGID)!
+                theDtl!.TransactionType = (billObj?.TransactionType)!
+                
             }
         }else{
             //insert a new one
@@ -162,12 +187,14 @@ class BillEditViewController: FormViewController {
                 theDtl.IsCompleted = (billObj?.IsCompleted)!
                 theDtl.ProjectGID = (billObj?.ProjectGID)!
                 theDtl.CustomerGID = (billObj?.CustomerGID)!
+                theDtl.TransactionType = (billObj?.TransactionType)!
                 realm.add(billObj!)
                 
                 
             }
         }
     }
+    
     
     
     
@@ -192,5 +219,103 @@ class BillEditViewController: FormViewController {
      // Pass the selected object to the new view controller.
      }
      */
+
+    
+    //Mark: - Email
+    func sendEmail(){
+        let trans = self.billObj
+        
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        let cust = Customer().GetByGUID(guid: (trans?.CustomerGID)!)
+        mailComposerVC.setToRecipients([cust.Email])
+        mailComposerVC.setSubject("Bill to " + Project().GetProjectNameByGuid(guid: (self.billObj?.ProjectGID)!))
+        let htmlbody = getHTMLString(cust, trans: trans!)
+        mailComposerVC.setMessageBody(htmlbody, isHTML: true)
+        
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposerVC, animated: true, completion: nil)
+        } else {
+            //self.showSendMailErrorAlert()
+        }
+        
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
+    {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients(["someone@somewhere.com"])
+        mailComposerVC.setSubject("Sending you an in-app e-mail...")
+        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func getHTMLString(_ cust: Customer, trans: Bill) -> String{
+        let fileName = "billTemp"
+        let DocumentDirURL = Bundle.main.bundleURL
+        
+        let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+        print("FilePath: \(fileURL.path)")
+        
+        var inString = ""
+        do {
+            inString = try String(contentsOf: fileURL)
+        } catch let error as NSError {
+            print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
+        }
+        
+        let st = Setting().LoadSettings()
+        
+        inString = inString.replacingOccurrences(of: "emailDate", with: Date().string(), options: NSString.CompareOptions.literal, range: nil)
+        
+        inString = inString.replacingOccurrences(of: "company1", with: st.Company, options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "name1", with: st.UserName, options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "addr11", with: st.UserAddress1, options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "addr21", with: st.UserAddress2, options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "email1", with: st.Email, options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "phone1", with: st.Phone, options: NSString.CompareOptions.literal, range: nil)
+        
+        inString = inString.replacingOccurrences(of: "company2", with: cust.Company, options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "name2", with: cust.ContactName, options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "addr12", with: cust.Address1, options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "addr22", with: cust.Address2, options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "email2", with: cust.Email, options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "phone2", with: cust.Phone, options: NSString.CompareOptions.literal, range: nil)
+        
+        let prj = Project().GetProject(guid: trans.ProjectGID)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        inString = inString.replacingOccurrences(of: "prj", with: prj.Name, options: NSString.CompareOptions.literal, range: nil)
+        if prj.BillTypes == "Fixed Cost"{
+            inString = inString.replacingOccurrences(of: "blltype", with: "Fixed", options: NSString.CompareOptions.literal, range: nil)
+            inString = inString.replacingOccurrences(of: "qty", with: "1", options: NSString.CompareOptions.literal, range: nil)
+            inString = inString.replacingOccurrences(of: "prz", with: formatter.string(from: prj.FixedPrice as NSNumber)!, options: NSString.CompareOptions.literal, range: nil)
+            
+        }else{
+            inString = inString.replacingOccurrences(of: "blltype", with: "Hourly", options: NSString.CompareOptions.literal, range: nil)
+            //inString = inString.replacingOccurrences(of: "qty", with: String(TimeClock().getTotalWorkingHours(prj.Guid)), options: NSString.CompareOptions.literal, range: nil)
+            inString = inString.replacingOccurrences(of: "prz", with: String(prj.BillRatePerHour), options: NSString.CompareOptions.literal, range: nil)
+            
+        }
+        inString = inString.replacingOccurrences(of: "amt", with: String(trans.Amount), options: NSString.CompareOptions.literal, range: nil)
+        inString = inString.replacingOccurrences(of: "tot", with: String(trans.Amount), options: NSString.CompareOptions.literal, range: nil)
+        
+        
+        
+        
+        
+        return inString
+    }
     
 }

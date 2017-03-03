@@ -1,0 +1,11 @@
+github "jonkykong/SideMenu" "master"
+github "xmartlabs/Eureka" ~> 2.0.0
+github "radex/SwiftyUserDefaults"
+github "thii/FontAwesome.swift"
+github "realm/realm-cocoa"
+github "wxxsw/GSMessages"
+github "malcommac/SwiftDate" ~> 4.0
+github "radex/SwiftyTimer"
+github "Krimpedance/KRAlertController"
+github "jerkoch/SwipeCellKit"
+github "marmelroy/Format"

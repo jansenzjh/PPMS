@@ -33,6 +33,11 @@
 		9A879B7D1E5E466F006DF79E /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A879B7C1E5E466F006DF79E /* TaskTableViewController.swift */; };
 		9A879B7F1E5E49B1006DF79E /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A879B7E1E5E49B1006DF79E /* TaskTableViewCell.swift */; };
 		9A879B811E5E7AA4006DF79E /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A879B801E5E7AA4006DF79E /* StrikeThroughText.swift */; };
+		9AA4CA6B1E6A069F000BC5E3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AA4CA6A1E6A069F000BC5E3 /* StoreKit.framework */; };
+		9AA4CA6E1E6A0805000BC5E3 /* PPMSProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA4CA6D1E6A0805000BC5E3 /* PPMSProducts.swift */; };
+		9AA4CA701E6A0864000BC5E3 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA4CA6F1E6A0864000BC5E3 /* IAPHelper.swift */; };
+		9AA4CA721E6A0C92000BC5E3 /* IAPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA4CA711E6A0C92000BC5E3 /* IAPTableViewController.swift */; };
+		9AA4CA741E6A10E8000BC5E3 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA4CA731E6A10E8000BC5E3 /* ProductCell.swift */; };
 		9AAFB3431E64998C005837CC /* TimeClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB3421E64998C005837CC /* TimeClock.swift */; };
 		9AAFB3451E649A8A005837CC /* TimeClockTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB3441E649A8A005837CC /* TimeClockTableViewController.swift */; };
 		9AAFB3471E649ABA005837CC /* TimeClockEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFB3461E649ABA005837CC /* TimeClockEditViewController.swift */; };
@@ -80,6 +85,11 @@
 		9A879B7C1E5E466F006DF79E /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskTableViewController.swift; path = Task/TaskTableViewController.swift; sourceTree = "<group>"; };
 		9A879B7E1E5E49B1006DF79E /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskTableViewCell.swift; path = Task/TaskTableViewCell.swift; sourceTree = "<group>"; };
 		9A879B801E5E7AA4006DF79E /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StrikeThroughText.swift; path = Task/StrikeThroughText.swift; sourceTree = "<group>"; };
+		9AA4CA6A1E6A069F000BC5E3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		9AA4CA6D1E6A0805000BC5E3 /* PPMSProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PPMSProducts.swift; path = IAP/PPMSProducts.swift; sourceTree = "<group>"; };
+		9AA4CA6F1E6A0864000BC5E3 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAPHelper.swift; path = IAP/IAPHelper.swift; sourceTree = "<group>"; };
+		9AA4CA711E6A0C92000BC5E3 /* IAPTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAPTableViewController.swift; path = IAP/IAPTableViewController.swift; sourceTree = "<group>"; };
+		9AA4CA731E6A10E8000BC5E3 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCell.swift; path = IAP/ProductCell.swift; sourceTree = "<group>"; };
 		9AAFB3421E64998C005837CC /* TimeClock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeClock.swift; path = TimeClock/TimeClock.swift; sourceTree = "<group>"; };
 		9AAFB3441E649A8A005837CC /* TimeClockTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeClockTableViewController.swift; path = TimeClock/TimeClockTableViewController.swift; sourceTree = "<group>"; };
 		9AAFB3461E649ABA005837CC /* TimeClockEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeClockEditViewController.swift; path = TimeClock/TimeClockEditViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +123,7 @@
 				9A2990191E5657F6002C5069 /* GSMessages.framework in Frameworks */,
 				9A29901A1E5657F6002C5069 /* SideMenu.framework in Frameworks */,
 				9A29901B1E5657F6002C5069 /* SwiftyUserDefaults.framework in Frameworks */,
+				9AA4CA6B1E6A069F000BC5E3 /* StoreKit.framework in Frameworks */,
 				9AAFB35A1E676025005837CC /* KRAlertController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +188,7 @@
 		9A298FFC1E564293002C5069 /* PPMS */ = {
 			isa = PBXGroup;
 			children = (
+				9AA4CA6C1E6A07D1000BC5E3 /* IAP */,
 				9AAFB34F1E662A83005837CC /* Setting */,
 				9AAFB3481E66101F005837CC /* Billing */,
 				9AAFB3411E64993E005837CC /* TimeClock */,
@@ -199,6 +211,7 @@
 		9A29900F1E5657F5002C5069 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9AA4CA6A1E6A069F000BC5E3 /* StoreKit.framework */,
 				9AAFB3621E692010005837CC /* Format.framework */,
 				9AAFB35B1E687A04005837CC /* SwipeCellKit.framework */,
 				9AAFB3591E676025005837CC /* KRAlertController.framework */,
@@ -227,6 +240,17 @@
 				9A879B801E5E7AA4006DF79E /* StrikeThroughText.swift */,
 			);
 			name = Task;
+			sourceTree = "<group>";
+		};
+		9AA4CA6C1E6A07D1000BC5E3 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				9AA4CA6D1E6A0805000BC5E3 /* PPMSProducts.swift */,
+				9AA4CA6F1E6A0864000BC5E3 /* IAPHelper.swift */,
+				9AA4CA711E6A0C92000BC5E3 /* IAPTableViewController.swift */,
+				9AA4CA731E6A10E8000BC5E3 /* ProductCell.swift */,
+			);
+			name = IAP;
 			sourceTree = "<group>";
 		};
 		9AAFB3411E64993E005837CC /* TimeClock */ = {
@@ -293,6 +317,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BY59H3843H;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -364,6 +393,7 @@
 				9AAFB35F1E68820E005837CC /* ProjectTableViewCell.swift in Sources */,
 				9A879B761E5E3DD4006DF79E /* TaskProjectListTableViewController.swift in Sources */,
 				9A0CFD371E5A618F0097CC64 /* MenuTableViewController.swift in Sources */,
+				9AA4CA6E1E6A0805000BC5E3 /* PPMSProducts.swift in Sources */,
 				9A879B7F1E5E49B1006DF79E /* TaskTableViewCell.swift in Sources */,
 				9A0CFD451E5B563D0097CC64 /* Customer.swift in Sources */,
 				9AAFB34C1E661192005837CC /* BillTableViewController.swift in Sources */,
@@ -372,16 +402,19 @@
 				9A2990001E564293002C5069 /* ViewController.swift in Sources */,
 				9A879B741E5E2B55006DF79E /* Task.swift in Sources */,
 				9AAFB3431E64998C005837CC /* TimeClock.swift in Sources */,
+				9AA4CA721E6A0C92000BC5E3 /* IAPTableViewController.swift in Sources */,
 				9A0CFD341E5816380097CC64 /* DashboardViewController.swift in Sources */,
 				9A0CFD411E5B53070097CC64 /* CustomerEditViewController.swift in Sources */,
 				9A0CFD3C1E5AA3FE0097CC64 /* ProjectEditViewController.swift in Sources */,
 				9AAFB3531E662B2B005837CC /* SettingEditViewController.swift in Sources */,
+				9AA4CA741E6A10E8000BC5E3 /* ProductCell.swift in Sources */,
 				9A879B811E5E7AA4006DF79E /* StrikeThroughText.swift in Sources */,
 				9A879B7B1E5E45FA006DF79E /* ToDoItem.swift in Sources */,
 				9A0CFD3E1E5AA6830097CC64 /* Project.swift in Sources */,
 				9A298FFE1E564293002C5069 /* AppDelegate.swift in Sources */,
 				9AAFB3451E649A8A005837CC /* TimeClockTableViewController.swift in Sources */,
 				9AAFB34A1E661045005837CC /* Bill.swift in Sources */,
+				9AA4CA701E6A0864000BC5E3 /* IAPHelper.swift in Sources */,
 				9AAFB3471E649ABA005837CC /* TimeClockEditViewController.swift in Sources */,
 				9AAFB34E1E6611AE005837CC /* BillEditViewController.swift in Sources */,
 				9A879B7D1E5E466F006DF79E /* TaskTableViewController.swift in Sources */,
@@ -513,7 +546,7 @@
 				);
 				INFOPLIST_FILE = PPMS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JSoft.PPMS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jzsoft.ppms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -530,7 +563,7 @@
 				);
 				INFOPLIST_FILE = PPMS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JSoft.PPMS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jzsoft.ppms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

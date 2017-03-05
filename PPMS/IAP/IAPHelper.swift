@@ -56,7 +56,7 @@ extension IAPHelper {
     }
     
     public func isProductPurchased(_ productIdentifier: ProductIdentifier) -> Bool {
-        return false
+        return purchasedProductIdentifiers.contains(productIdentifier)
     }
     
     public class func canMakePayments() -> Bool {

@@ -135,6 +135,12 @@ class Project: Object {
             }
         }
     }
+    func Count() -> Int{
+        let realm = try! Realm()
+        
+        return realm.objects(Project.self).count
+    }
+    
     
     func BillProject(){
         //1. create bill

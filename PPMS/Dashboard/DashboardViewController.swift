@@ -13,8 +13,9 @@ import SwiftyTimer
 import Eureka
 import KRAlertController
 import Format
+import SwiftyUserDefaults
 
-class DashboardViewController: FormViewController {
+class DashboardViewController: FormViewController, RevMobAdsDelegate {
 
     @IBOutlet weak var btnMenuOutlet: UIBarButtonItem!
     
@@ -22,14 +23,30 @@ class DashboardViewController: FormViewController {
     var timeClockCount = 0
     var clockTimer = Timer()
     let projects = Project().GetAllProjects(isActiveOnly: true)
+    var rewardedVideo: RevMobFullscreen?
+    let AD_SHOW_INTERVAL = 3
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        Defaults[.IsPaidAd] = PPMSProducts.store.isProductPurchased(PPMSProducts.AdRemoveProduct)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !Defaults[.IsPaidAd] {
+            let completionBlock: () -> Void = {
+                RevMobAds.session().showFullscreen()
+            }
+            let errorBlock: (Error?) -> Void = {error in
+                // check the error
+                print(error ?? "error in ad")
+            }
+            RevMobAds.startSession(withAppID: "58ba560427c28c615fa23089", withSuccessHandler: completionBlock, andFailHandler: errorBlock)
+            
+        }
         
         self.uiInit()
         self.timeclockInit()
@@ -47,7 +64,6 @@ class DashboardViewController: FormViewController {
                 $0.title = "Clock in"
                 if self.currentClockIn.ProjectGID.characters.count > 0{
                     $0.value = Project().GetProjectNameByGuid(guid: (self.currentClockIn.ProjectGID))
-                    
                     
                 }
                 
@@ -72,10 +88,21 @@ class DashboardViewController: FormViewController {
                         self.currentClockIn.ProjectGID = tc.ProjectGID
                         //update time clock
                         self.startTimer()
+                        //update clock in count
+                        Defaults[.ClockInCount] += 1
                     }
                     
                     
                 }.onCellSelection{ row in
+                    if !Defaults[.IsPaidAd] && Defaults[.ClockInCount] > 0 && Defaults[.ClockInCount] % self.AD_SHOW_INTERVAL == 0{
+                        KRAlertController(title: "Ad Time", message: "Every 3 times you clock in, you will watch a video. You can continue your work after that.You also can pay the In-App Purchase in Menu to remove Ad. Thank you!")
+                            .addAction(title: "OK"){ action, textFields in
+                                
+                                //Run the Ad
+                                self.loadRewardedVideo()
+                            }
+                            .showInformation(icon: true)
+                    }
                     row.1.options = Project().GetAllProjectName()
             
             }
@@ -104,8 +131,6 @@ class DashboardViewController: FormViewController {
                             //stop timer
                             self.stopTimer()
                             //hide clock out button
-//                            let btnRow = self.form.rowBy(tag:"btnClockOut") as? ButtonRow
-//                            btnRow?.hidden = true
                             let projRow = self.form.rowBy(tag: "ProjectGID") as? PushRow<String>
                             projRow?.baseValue = nil
                             projRow?.updateCell()
@@ -221,4 +246,66 @@ class DashboardViewController: FormViewController {
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
     
+    
+    // MARK: - Ad Delegate
+    func loadRewardedVideo(){
+        rewardedVideo = RevMobAds.session().fullscreen()
+        rewardedVideo!.delegate = self
+        rewardedVideo!.loadRewardedVideo()
+    }
+    func showLoadedRewardedVideo(){
+        if(rewardedVideo != nil) {
+            rewardedVideo!.showRewardedVideo()
+        }
+    }
+    func revmobRewardedVideoDidLoad(_ placementId: String!) {
+        NSLog("[RevMob Sample App] Received Rewarded Video of Placement id:\(placementId)")
+        self.showLoadedRewardedVideo()
+    }
+    
+    
+    
+    
+    func revmobRewardedVideoDidFailWithError(_ error: Error!, onPlacement placementId: String!) {
+        NSLog("[RevMob Sample App] Rewarded Video of placement: \(placementId) failed with error: \(error.localizedDescription)")
+        
+    }
+    
+    func revmobRewardedVideoDidStart(_ placementId: String!) {
+        NSLog("[RevMob Sample App] Rewarded Video of placement Id: \(placementId) started")
+    }
+    func revmobUserDidCloseRewardedVideo(_ placementId: String!) {
+        NSLog("[RevMob Sample App] Rewarded Video of placement Id: \(placementId) completed")
+    }
+    func revmobRewardedPreRollDidDisplay(_ placementId: String!) {
+        NSLog("[RevMob Sample App] Rewarded Video of placement Id: \(placementId) finished")
+    }
+    func revmobRewardedVideoNotCompletelyLoaded(_ placementId: String!) {
+        NSLog("[RevMob Sample App] Rewarded Video of placement Id: \(placementId) not loaded yet")
+    }
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

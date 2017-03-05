@@ -12,6 +12,7 @@ import SwipeCellKit
 import SwiftDate
 import KRAlertController
 import GSMessages
+import SwiftyUserDefaults
 
 class ProjectTableViewController: UITableViewController, SwipeTableViewCellDelegate {
 
@@ -157,6 +158,14 @@ class ProjectTableViewController: UITableViewController, SwipeTableViewCellDeleg
             theDtl.BillRatePerHour = projectObj.BillRatePerHour
             theDtl.FixedPrice = projectObj.FixedPrice
             destView.projectObj = theDtl
+        }else if(segue.identifier == "addprojectSegue") {
+            if !Defaults[.IsPaidAd]{
+                let destView = segue.destination as! ProjectEditViewController
+                destView.shouldShowAd = true
+            }
+            
         }
     }
+    
+    
 }

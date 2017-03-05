@@ -17,8 +17,8 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet weak var cellBillingUI: UITableViewCell!
     @IBOutlet weak var cellSettingUI: UITableViewCell!
     @IBOutlet weak var cellDashboardUI: UITableViewCell!
+    @IBOutlet weak var cellIAPUI: UITableViewCell!
     
-        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,6 +56,8 @@ class MenuTableViewController: UITableViewController {
         cellBillingUI.imageView?.image = UIImage.fontAwesomeIcon(name: .money, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
         cellSettingUI.imageView?.image = UIImage.fontAwesomeIcon(name: .gears, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
         cellDashboardUI.imageView?.image = UIImage.fontAwesomeIcon(name: .tachometer, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
+        cellDashboardUI.imageView?.image = UIImage.fontAwesomeIcon(name: .tachometer, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
+        cellIAPUI.imageView?.image = UIImage.fontAwesomeIcon(name: .shoppingCart, textColor: UIColor.gray, size: CGSize(width: 25, height: 25))
         
     }
     

@@ -10,19 +10,25 @@ import UIKit
 import Eureka
 import RealmSwift
 import GSMessages
+import KRAlertController
 
-class ProjectEditViewController: FormViewController {
+class ProjectEditViewController: FormViewController, RevMobAdsDelegate {
 
     
     var projectObj: Project? = nil
+    var shouldShowAd = false
+    var rewardedVideo: RevMobFullscreen?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let realm = try! Realm()
-//        debugPrint("Path to realm file: " + realm.configuration.fileURL!.absoluteString)
+        RevMobAds.startSession(withAppID: "58ba560427c28c615fa23089")
+        
         if projectObj == nil {
             projectObj = Project()
+        }
+        if shouldShowAd{
+            self.showAd()
         }
         
         form +++ Section("Information")
@@ -286,6 +292,55 @@ class ProjectEditViewController: FormViewController {
     
     
     
+    //Mark: - Ad delegate
+    func showAd(){
+        let count = Project().Count()
+        if count > 0 {
+            KRAlertController(title: "Ad Time", message: "After the 1st project, every time you create a new project, you are required to watch an ad video. If you like this App, please go to the In-App Purchase to remove the Ads. Thank you for your support!")
+                .addAction(title: "Yes") { action, textFields in
+                    //Run the Ad
+                    self.loadRewardedVideo()
+                }
+                .showInformation(icon: true)
+        }
+    }
+    
+    // MARK: - Ad Delegate
+    func loadRewardedVideo(){
+        rewardedVideo = RevMobAds.session().fullscreen()
+        rewardedVideo!.delegate = self
+        rewardedVideo!.loadRewardedVideo()
+    }
+    func showLoadedRewardedVideo(){
+        if(rewardedVideo != nil) {
+            rewardedVideo!.showRewardedVideo()
+        }
+    }
+    func revmobRewardedVideoDidLoad(_ placementId: String!) {
+        NSLog("[RevMob Sample App] Received Rewarded Video of Placement id:\(placementId)")
+        self.showLoadedRewardedVideo()
+    }
+    
+    
+    
+    
+    func revmobRewardedVideoDidFailWithError(_ error: Error!, onPlacement placementId: String!) {
+        NSLog("[RevMob Sample App] Rewarded Video of placement: \(placementId) failed with error: \(error.localizedDescription)")
+        
+    }
+    
+    func revmobRewardedVideoDidStart(_ placementId: String!) {
+        NSLog("[RevMob Sample App] Rewarded Video of placement Id: \(placementId) started")
+    }
+    func revmobUserDidCloseRewardedVideo(_ placementId: String!) {
+        NSLog("[RevMob Sample App] Rewarded Video of placement Id: \(placementId) completed")
+    }
+    func revmobRewardedPreRollDidDisplay(_ placementId: String!) {
+        NSLog("[RevMob Sample App] Rewarded Video of placement Id: \(placementId) finished")
+    }
+    func revmobRewardedVideoNotCompletelyLoaded(_ placementId: String!) {
+        NSLog("[RevMob Sample App] Rewarded Video of placement Id: \(placementId) not loaded yet")
+    }
     
 
 }

@@ -16,17 +16,6 @@ class SettingEditViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        var Company = ""
-//        var UserName = ""
-//        var UserAddress1 = ""
-//        var UserAddress2 = ""
-//        var City = ""
-//        var State = ""
-//        var Country = ""
-//        var Zip = ""
-//        var Email = ""
-//        var Phone = ""
 
         form +++ Section("Information")
             <<< TextRow("Company"){ row in

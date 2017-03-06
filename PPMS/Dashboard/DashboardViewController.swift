@@ -30,7 +30,7 @@ class DashboardViewController: FormViewController, RevMobAdsDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Defaults[.IsPaidAd] = PPMSProducts.store.isProductPurchased(PPMSProducts.AdRemoveProduct)
-        
+        Defaults[.IsPaidAd] = true
     }
     
     override func viewDidLoad() {
